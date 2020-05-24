@@ -1,0 +1,12 @@
+<view class="container">
+    <image class="hot_img" src="{{bannerG.img}}"></image>
+    <view class="hot_products">
+        <view class="hot_first">
+            <image class="hot_first_img" src="{{left.img}}"></image>
+        </view>
+        <veiw class="hot_second">
+            <image class="hot_second_img_one" src="{{rightTop.img}}"></image>
+            <image class="hot_second_img_two" src="{{rightBottom.img}}"></image>
+        </veiw>
+    </view>
+</view>

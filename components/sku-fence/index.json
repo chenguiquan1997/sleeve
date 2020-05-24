@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "z-sku-cell": "/components/sku-cell/index"
+  }
+}

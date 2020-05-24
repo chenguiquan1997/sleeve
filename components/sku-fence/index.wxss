@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.hr {
+    width: 690rpx;
+    height: 2rpx;
+    background-color: #E9E9E9;
+   margin: 25rpx 0 20rpx 20rpx;
+}

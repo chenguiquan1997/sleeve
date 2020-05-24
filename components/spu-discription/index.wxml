@@ -1,0 +1,39 @@
+<wxs src="../../wxs/show-price.wxs" module="p"></wxs>
+<view class="container">
+    <view class="left">
+        <text class="title">{{data.title}}</text>
+        <view class="tags_view">
+            <block wx:for="{{tags}}" wx:key="item">
+                <l-tag l-class="l_tag" size="super-mini">{{item}}</l-tag>
+            </block>
+        </view>
+        <text class="subtitle">{{data.subtitle}}</text>
+        <view class="price_view">
+            <l-price class="letting_down_price"
+                     color="#157658" value-size="28" unit-size="20" autofix
+                     value="{{p.mainPrice(data.price,data.discount_price)}}"></l-price>
+
+            <l-price class="main_price"
+                     wx:if="{{data.discount_price !== null?true:false}}"
+                     deleted="{{true}}" autofix color="#999999" value-size="24" unit-size="20"
+                     value="{{p.lettingDownPrice(data.price,data.discount_price)}}"></l-price>
+
+            <l-tag l-class="discount-tag" type="reading" shape="circle"
+                   bg-color="#c93756"
+                   wx:if="{{data.discount_price}}"
+                   size="super-mini">折扣</l-tag>
+        </view>
+    </view>
+    <view class="right">
+        <!--这是原生的小程序button，改变样式非常麻烦-->
+        <!--<button open-type="share">分享</button>-->
+        <l-button special="{{true}}" open-type="share">
+            <view class="share_container">
+                <l-icon color="#157658" name="share" size="25"></l-icon>
+                <text class="describe">分</text>
+                <text class="describe">享</text>
+            </view>
+        </l-button>
+    </view>
+
+</view>

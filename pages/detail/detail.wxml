@@ -1,0 +1,41 @@
+<view class="container" scroll-y="true">
+    <swiper class="swiper_img"
+            indicator-dots="true"
+            autoplay="true"
+            indicator-active-color="#157658"
+            interval="3000"
+            circular="true">
+        <block wx:for="{{spuData.spu_img_list}}" wx:key="item">
+            <swiper-item>
+                <image class="swiper_img" src="{{item.img}}" mode="{{aspectFit}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <z-spu-discription data="{{spuData}}"></z-spu-discription>
+    <!--如果当前商品为无规格商品，那么就不显示当前view  -->
+    <view class="spec_container" bind:tap="onSelectSpecTap">
+        <view wx:if="{{specData.whetherSpec === true}}" class="spec_view">
+            <text class="specName" wx:if="{{!specData.intact}}">请选择 : </text>
+            <text class="specValue" wx:if="{{!specData.intact}}">{{specData.noSelectedSpec}}</text>
+            <text class="specName" wx:if="{{specData.intact}}">已选 : </text>
+            <text class="specValue" wx:if="{{specData.intact}}">{{specData.specName}}</text>
+        </view>
+        <view class="arrow-right">
+            <l-icon name="right" color="#157658" size="24"></l-icon>
+        </view>
+    </view>
+    <view class="explain">
+        <z-sale-explain data="{{saleExplain}}"></z-sale-explain>
+    </view>
+</view>
+
+<l-popup show="{{showRealm}}" content-align="bottom">
+    <z-sku-realm bind:onSpecTriggerEvent="onSpecTriggerEvent" spu="{{spuData}}" flag="{{flag}}"></z-sku-realm>
+</l-popup>
+<!--<z-sku-realm spu="{{spuData}}"></z-sku-realm>-->
+<z-tab-bar class="tab_bar"
+           bind:onTapHomce="onTapHomce"
+           bind:onTapBuyCar="onTapBuyCart"
+           bind:onTapAddCar="onTapAddCart"
+           bind:onTapBuy="onTapBuy"></z-tab-bar>

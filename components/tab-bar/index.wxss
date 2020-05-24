@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+    width: 100%;
+    background-color: #ffffff;
+}
+.family {
+    font-family: iconfont, serif !important;
+    color: #157658 !important;
+}
+.icons {
+    height: 100%;
+    width: 230rpx;
+    display: flex;
+    flex-direction: row;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 35%;
+    margin-left: 30rpx;
+}
+.min_discription {
+    font-size: 20rpx;
+}
+.buy_car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 65%;
+}
+.add_car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 260rpx;
+    background-color: #555555;
+}
+.discription {
+    font-size: 32rpx;
+    height: 36rpx;
+    color: #ffffff;
+}
+.buy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 260rpx;
+    background-color: #157658;
+}

@@ -1,0 +1,7 @@
+<view class="container">
+    <block wx:for="{{productDetail}}" wx:key="index">
+        <view class="inner">
+            <text>{{item.text}}</text>
+        </view>
+    </block>
+</view>

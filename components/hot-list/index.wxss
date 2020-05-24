@@ -1,0 +1,36 @@
+.container {
+    background-color: #ffffff;
+    padding-top: 40rpx;
+}
+.hot_img {
+    padding: 0 0 0 28rpx;
+    width: 692rpx;
+    height: 90rpx;
+    margin-bottom: 20rpx;
+}
+.hot_products {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.hot_first {
+    height:522rpx;
+}
+.hot_first_img {
+    width: 346rpx;
+    height:522rpx;
+}
+.hot_second {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.hot_second_img_one {
+    width: 400rpx;
+    height: 260rpx;
+}
+.hot_second_img_two {
+    width: 400rpx;
+    height: 260rpx;
+}

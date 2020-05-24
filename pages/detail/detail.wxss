@@ -1,0 +1,50 @@
+.container {
+    margin-bottom: 100rpx;
+}
+.swiper_img {
+    height: 680rpx;
+    width: 100%;
+}
+.tab_bar {
+    position: fixed;
+    bottom: 0;
+}
+.spec_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80rpx;
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 10rpx;
+}
+.spec_view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.specName {
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 30rpx;
+}
+.specValue {
+    margin-left: 20rpx;
+    font-size: 24rpx;
+    color: #157658;
+}
+.arrow-right {
+    margin-right: 60rpx;
+}
+.explain{
+    margin-top:10rpx;
+    background-color: #ffffff;
+    padding-bottom: 20rpx;
+    padding-top:20rpx;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}

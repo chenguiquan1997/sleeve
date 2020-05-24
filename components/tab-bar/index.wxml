@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="icons">
+        <view class="home" bind:tap="onTapHome">
+            <l-icon l-class="family" name="home" size="46"></l-icon>
+            <text class="min_discription">首页</text>
+        </view>
+        <view class="buy_car" bind:tap="onTapBuyCar">
+            <l-badge value="10">
+                <l-icon name="cart" size="46" color="#157658"></l-icon>
+            </l-badge>
+            <text class="min_discription">购物车</text>
+        </view>
+    </view>
+
+    <view class="add_car" bind:tap="onTapAddCar">
+        <text class="discription">加入购物车</text>
+    </view>
+    <view class="buy" bind:tap="onTapBuy">
+        <text class="discription">立即购买</text>
+    </view>
+</view>

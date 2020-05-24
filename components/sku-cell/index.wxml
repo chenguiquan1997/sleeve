@@ -1,0 +1,11 @@
+<wxs src="../../wxs/option-cell-styles.wxs" module="m"></wxs>
+
+
+<view class="{{m.cellStyles(cell.status).outer}}" bind:tap="onOptionCell" >
+    <view class="{{m.cellStyles(cell.status).inner}}">
+        <image class="cell_img" src="{{cell.img}}" wx:if="{{cell.img}}"></image>
+        <text class="{{m.cellStyles(cell.status).title}}">{{cell.title}}</text>
+    </view>
+</view>
+
+

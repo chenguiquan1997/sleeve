@@ -1,0 +1,60 @@
+<wxs src="../../wxs/show-price.wxs" module="p"></wxs>
+<scroll-view class="container" scroll-y="true">
+    <!--最上面title的图片-->
+    <view class="spu_head_view">
+        <image class="img" src="{{img}}"></image>
+        <view class="title_view">
+            <text class="spu_name">{{data.title}}</text>
+            <view class="price_view">
+                <l-price class="letting_down_price"
+                         color="#157658" value-size="28" unit-size="20" autofix
+                         value="{{p.mainPrice(data.price,data.discount_price)}}"></l-price>
+
+                <l-price class="main_price"
+                         wx:if="{{data.discount_price !== null?true:false}}"
+                         deleted="{{true}}" autofix color="#999999" value-size="24" unit-size="20"
+                         value="{{p.lettingDownPrice(data.price,data.discount_price)}}"></l-price>
+                <view>
+                    <text wx:if="{{stock && stock >= 10}}" class="stock">库存: {{stock}} 件</text>
+                    <text wx:if="{{stock && stock < 10 && stock > 0}}" class="stock_min">仅剩: {{stock}} 件</text>
+                </view>
+            </view>
+            <!--如果当前商品为无规格商品，那么就不显示当前view-->
+            <view wx:if="{{!noSpec}}" class="spec_view">
+
+                <text class="specName" wx:if="{{!intact}}">请选择: {{noSelectedSpec}}</text>
+                <text class="specName" wx:if="{{intact}}">已选: {{specName}}</text>
+            </view>
+        </view>
+
+    </view>
+    <view class="hr"></view>
+    <view class="fence">
+        <block wx:for="{{fencesData}}" wx:key="index">
+            <view class="spec_view">
+                <text class="spec_name">{{item.specName}}</text>
+            </view>
+            <!--当前的x获取的是cell的横坐标-->
+            <!--bind:cellTap代表的是&ndash;&gt;监听sku-cell组件中的cellTap事件-->
+            <z-sku-fence bind:cellTap="onCellTap" x="{{index}}" fenceData="{{item.cells}}"></z-sku-fence>
+        </block>
+    </view>
+    <!--计数器组件-->
+    <view class="counter_container">
+        <text class="buy_count">购买数量</text>
+        <z-counter bind:lintap="onSelectedCount"></z-counter>
+    </view>
+</scroll-view>
+<l-button wx:if="{{whetherProductFlag}}" l-class="buy_button" size="long" height="100rpx" shape="square" bg-color="#555555">
+    <text wx:if="{{flag === 'addCart'}}">加入购物车</text>
+    <text wx:else>立即购买</text>
+</l-button>
+
+
+<l-button wx:if="{{!whetherProductFlag}}" l-class="buy_button" size="long" height="100rpx" shape="square"
+          bg-color="#DCEBE6">暂时缺货</l-button>
+
+
+
+
+

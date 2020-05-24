@@ -1,0 +1,29 @@
+.container {
+    padding: 42rpx 0 34rpx 28rpx;
+    background-color: #ffffff;
+}
+.theme_img {
+    width: 692rpx;
+    height: 90rpx;
+}
+.theme_scroll {
+    display: flex;
+    flex-direction: row;
+}
+.scroll_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40rpx;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+}
+.item_img {
+    width: 160rpx;
+    height: 160rpx;
+}
+.item_title {
+    font-size: 20rpx;
+    color: #666666;
+    margin-top:20rpx;
+}

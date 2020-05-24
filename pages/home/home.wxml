@@ -1,0 +1,42 @@
+
+<l-loadmore show="{{true}}" type="end" end-text="-稻草人作品-" >
+  <view slot="content">
+    <view class="container">
+      <image class="theme-top" src="{{topTheme.entrance_img}}"></image>
+
+      <!-- 在使用swiper组件时，swiper和swiper-item都需要设置高度和宽度，否则图片撑不起来 -->
+      <swiper class="bannerB_img"
+              indicator-dots="true"
+              autoplay="true"
+              indicator-active-color="#157658"
+              interval="3000"
+              circular="true">
+        <block wx:for="{{bannerB.items}}" wx:key="item">
+          <swiper-item>
+            <image class="bannerB_img" src="{{item.img}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!--自定义的宫格组件,前面的category_grid_C是自定义组件中properties中的值
+      后面花括号中的category_grid_C表示当前页面js文件中传进来的数据-->
+      <z-category-grid category_grid_C="{{category_grid_C}}"/>
+      <!--优惠券主页-->
+      <view class="homeLocaltionD">
+        <image class="homeLocaltionD_img" src="{{activityD.entrance_img}}"></image>
+      </view>
+      <!--每周上新滚动条-->
+      <z-spu-scroll themeE="{{themeE}}" themeESpu="{{themeESpu}}"/>
+      <!--风袖甄选主页-->
+      <image class="homeLocationF" src="{{themeF.entrance_img}}"/>
+      <!--热卖榜单-->
+      <z-hot-list bannerG="{{bannerG}}"/>
+      <!--时尚出街-->
+      <image class="fashion_img" src="{{themeH.entrance_img}}"/>
+      <!--商品的滚动列表-->
+      <view class="home_spu_list_container">
+        <image class="top_img" src="../../images/recommend.png"/>
+        <l-water-flow generic:l-water-flow-item="z-spu-waterflow-list" column-gap="20rpx"/>
+      </view>
+    </view>
+  </view>
+</l-loadmore>

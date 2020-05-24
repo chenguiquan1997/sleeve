@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "z-sku-realm": "/components/sku-realm/index",
+    "z-tab-bar": "/components/tab-bar/index",
+    "z-spu-discription": "/components/spu-discription/index",
+    "z-sale-explain": "/components/sale-explain/index"
+  }
+}

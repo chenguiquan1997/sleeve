@@ -1,0 +1,9 @@
+{
+  
+  "usingComponents": {
+    "z-category-grid": "/components/category-grid/index",
+    "z-spu-scroll": "/components/spu-scroll/index",
+    "z-hot-list": "/components/hot-list/index",
+    "z-spu-waterflow-list": "/components/spu-waterflow-list/index"
+  }
+}

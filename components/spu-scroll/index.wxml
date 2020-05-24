@@ -1,0 +1,15 @@
+<wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="str"/>
+
+<view class="container">
+    <image class="theme_img" src="{{themeE.title_img}}"> </image>
+    <scroll-view class="theme_scroll" enable-flex="true" scroll-x="true" scroll-y="false">
+        <block wx:for="{{themeESpu}}" wx:key="item">
+            <view class="scroll_item">
+                <image class="item_img" src="{{item.img}}"></image>
+                <text class="item_title">{{item.title.length>=8?str.substring(item.title,0,7)+'...':item.title}}</text>
+                <l-price class="item_price" value="{{item.price}}" color="#157658"/>
+            </view>
+        </block>
+    </scroll-view>
+
+</view>

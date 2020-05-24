@@ -1,0 +1,9 @@
+<view class="container">
+    <l-counter l-class="l_counter"
+               l-symbol-class="l_symbol"
+               l-count-class="l_count"
+               count="{{count}}" min="{{min}}" max="{{max}}"
+               bind:linout="onOverstep">
+    </l-counter>
+</view>
+

@@ -1,0 +1,84 @@
+.container {
+    background-color: #ffffff;
+    max-height: 1000rpx;
+    min-height: 600rpx;
+    margin-bottom: 85rpx;
+}
+.spu_head_view {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20rpx;
+
+}
+.img {
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 30rpx;
+    margin-top: 20rpx;
+}
+.title_view {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+.spu_name {
+    margin-bottom: 50rpx;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+}
+.spec_view {
+    height: 60rpx;
+}
+.spec_name {
+    font-size: 24rpx;
+    color: #666666;
+    margin-left: 20rpx;
+    margin-bottom: 30rpx;
+}
+.main_price {
+    margin-left: 20rpx;
+}
+.price_view {
+    display: flex;
+    flex-direction: row;
+}
+.hr {
+    margin-left: 20rpx;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+    width: 690rpx;
+    height: 2rpx;
+    background-color: #E9E9E9;
+}
+.stock {
+    margin-left:30rpx;
+    font-size: 20rpx;
+    color: #999;
+}
+.stock_min {
+    margin-left:30rpx;
+    font-size: 20rpx;
+    color: #D20109;
+}
+.specName {
+    font-size: 24rpx;
+    color: #555555;
+}
+.counter_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 34rpx;
+    margin-bottom: 50rpx;
+}
+.buy_count {
+    font-size: 25rpx;
+    margin-left: 20rpx;
+    color:#555555;
+}
+
+.buy_button {
+    position: absolute;
+    bottom: 0;
+}

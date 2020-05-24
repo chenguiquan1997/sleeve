@@ -1,0 +1,33 @@
+
+
+function cellStyles(status) {
+    // status = "selected";
+    //显示禁用状态
+    if(status === "prohibit") {
+        return {
+            outer:"prohibit_container",
+            inner:"cell_prohibit",
+            title:"cell_prohibit_title"
+        }
+    }
+    //显示已选中状态
+    if(status === "selected") {
+        return {
+            outer:"selected_container",
+            inner:"cell_selected",
+            title:"cell_selected_title"
+        }
+    }
+    //显示可选择状态
+    if(status === "waiting") {
+        return {
+            outer:"waiting_container",
+            inner:"cell_waiting",
+            title:"cell_waiting_title"
+        }
+    }
+}
+
+module.exports = {
+    cellStyles:cellStyles
+}

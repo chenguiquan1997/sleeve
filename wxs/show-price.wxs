@@ -1,0 +1,20 @@
+function mainPrice(mainPrice,discountPrice) {
+    if(discountPrice) {
+        return discountPrice;
+    }else {
+        return mainPrice;
+    }
+}
+
+function lettingDownPrice(mainPrice, discountPrice) {
+    if(!discountPrice) {
+        return null;
+    }else {
+        return mainPrice;
+    }
+}
+
+module.exports = {
+    mainPrice:mainPrice,
+    lettingDownPrice:lettingDownPrice
+}

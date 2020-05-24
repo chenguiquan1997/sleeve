@@ -1,0 +1,9 @@
+<view class="container">
+    <block wx:for="{{fenceData}}" wx:key="index">
+<!--       x为cell的横坐标，y为纵坐标-->
+        <z-sku-cell cell="{{item}}" x="{{x}}" y="{{index}}"></z-sku-cell>
+    </block>
+</view>
+<view class="hr"></view>
+
+

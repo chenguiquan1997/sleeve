@@ -1,0 +1,11 @@
+.l_counter {
+    border: solid 2rpx #157658;
+    margin-right: 40rpx;
+    background-color: #ffffff !important;
+}
+.l_symbol {
+    background-color: #ffffff !important;
+}
+.l_count {
+    background-color: #ffffff !important;
+}
