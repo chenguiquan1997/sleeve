@@ -6,12 +6,14 @@
     "pages/detail/detail",
     "pages/my/my",
     "pages/cart/cart",
-    "pages/category/category"
+    "pages/category/category",
+    "pages/search/search",
+    "pages/grid/grid"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "风袖",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -55,6 +57,13 @@
     "l-button": "/miniprogram_npm/lin-ui/button/index",
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "l-badge": "/miniprogram_npm/lin-ui/badge/index",
-    "l-popup": "/miniprogram_npm/lin-ui/popup/index"
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index",
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
+    "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index",
+    "l-toast": "/miniprogram_npm/lin-ui/toast/index",
+    "l-status-show": "/miniprogram_npm/lin-ui/status-show/index",
+    "l-slide-view": "/miniprogram_npm/lin-ui/slide-view/index"
   }
 }

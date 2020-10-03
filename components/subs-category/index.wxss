@@ -1,0 +1,30 @@
+.container {
+    width: 510rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.l-container {
+    width: 510rpx;
+}
+.grid-item {
+    /*如果宽不设置，那么就会导致用户点击的面积变小*/
+    width: 150rpx;
+    /*如果不设置height属性，那么lin-UI可以帮助我们自动计算*/
+    padding-bottom: 36rpx;
+    display: flex;
+    direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.grid-img {
+    width: 100rpx;
+    height: 80rpx;
+}
+.text {
+    margin-top: 6rpx;
+    font-size: 20rpx;
+    color: #333333;
+}

@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #ffffff;
+    margin-top: 5rpx;
+    position: relative;
+    height: 210rpx;
+    margin-bottom: -5rpx;
+}
+
+.sku_container {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.right_container {
+    display: flex;
+    flex-direction: column;
+}
+.top_title_container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30rpx;
+    align-items: center;
+    margin-bottom: 15rpx;
+}
+.price_counter_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+.img {
+    /*width: 150rpx;*/
+    /*height: 150rpx;*/
+    /*margin-right: 20rpx;*/
+    height: 100%;
+    width: 100%;
+}
+.l_tag {
+    background-color: #DCEBE6 !important;
+    color: #167658 !important;
+    margin-bottom: 40rpx;
+}
+.title {
+    color: #333333;
+    font-size: 24rpx;
+}
+.check_box {
+    margin-left: 30rpx;
+    margin-right: 20rpx;
+}
+.discount_tag {
+    margin-right: 15rpx;
+}
+.counter {
+    position: fixed;
+    right: 220rpx;
+    bottom: 20rpx;
+}
+.image_container {
+    width: 150rpx;
+    height: 150rpx;
+    margin-right: 20rpx;
+    position: relative;
+}
+.sale_out {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40rpx;
+    opacity: 0.9;
+    color: #ffffff;
+}
+.sale_offline {
+    position: absolute;
+}
+.stock_little {
+    position: absolute;
+    width: 100%;
+    height: 30rpx;
+    bottom: 0rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 22rpx;
+    background-color: #157658;
+    color: #ffffff;
+    opacity: 0.7;
+}
+.sku_cover {
+    position: absolute;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    opacity: 0.6;
+}
+.right {
+    width: 200rpx;
+    height: 210rpx;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    background-color: #9E2731;
+    color: #333333;
+    margin-top: 5rpx;
+}

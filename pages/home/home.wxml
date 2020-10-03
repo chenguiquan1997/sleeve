@@ -1,5 +1,5 @@
 
-<l-loadmore show="{{true}}" type="end" end-text="-稻草人作品-" >
+<l-loadmore show="{{true}}" type="{{loadingType}}" loading-text="努力加载中~" end-text="-稻草人作品-" >
   <view slot="content">
     <view class="container">
       <image class="theme-top" src="{{topTheme.entrance_img}}"></image>
@@ -35,7 +35,9 @@
       <!--商品的滚动列表-->
       <view class="home_spu_list_container">
         <image class="top_img" src="../../images/recommend.png"/>
-        <l-water-flow generic:l-water-flow-item="z-spu-waterflow-list" column-gap="20rpx"/>
+        <l-water-flow generic:l-water-flow-item="z-spu-waterflow-list" column-gap="20rpx">
+
+        </l-water-flow>
       </view>
     </view>
   </view>

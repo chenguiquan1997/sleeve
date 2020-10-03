@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "z-check-box": "/components/check-box/index",
+    "z-counter": "/components/counter/index"
+  }
+}

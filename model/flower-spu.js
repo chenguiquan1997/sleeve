@@ -10,6 +10,16 @@ class FlowerSpu {
         }, 0, 4);
         return paging;
     }
+
+    static async getGridWaterFlowerSpuList(id) {
+        let paging = new Paging({
+            url: `spu/by/category/${id}`,
+            data: {
+                isRoot: 'true',
+            },
+        }, 0, 4);
+        return paging;
+    }
 }
 
 export {

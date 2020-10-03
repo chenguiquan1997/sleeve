@@ -53,7 +53,7 @@ class Paging {
      *  定义从服务端获取瀑布流商品数据的方法
      * @returns {Promise<{moreData: *, accumulate: *[], items: (*[]|DataTransferItemList), empty: boolean}[]|{moreData: boolean, accumulate: *[], items: *[], empty: boolean}[]>}
      */
-    async getHomeSpuList() {
+    async getHomeSpuList(flag="null") {
         //判断是否有更多数据,这个判断很重要，它可以在前端防止不必要的请求，降低服务器的压力
         if(!this.isHaveMoreData) {
             return null;
@@ -63,7 +63,7 @@ class Paging {
            return null;
         }
         //调用请求
-        let flowSpuListData = await this._requestSpuList();
+        let flowSpuListData = await this._requestSpuList(flag);
         //释放锁
         this._releaseLock();
         return flowSpuListData;
@@ -73,9 +73,9 @@ class Paging {
      * @returns {Promise<{moreData: *, accumulate: [], items: ([]|DataTransferItemList), empty: boolean}[]|{moreData: boolean, accumulate: [], items: [], empty: boolean}[]>}
      * @private
      */
-    async _requestSpuList() {
+    async _requestSpuList(flag) {
         //首先获取每次请求之前整理好的url
-        const reqObject = this.handleParameter();
+        const reqObject = this.handleParameter(flag);
         //执行request方法需要返回一个promise，所以需要await
         let splitPageData = await Http.request(reqObject);
         if(splitPageData === null) {
@@ -136,17 +136,23 @@ class Paging {
      * 用于获取每次请求数据url的方法
      * @returns {*}
      */
-    handleParameter() {
+    handleParameter(flag) {
         // v1/spu/latest
         //首先拿到请求参数中的url
         let url = this.url;
         //console.log(url);
         //拼接每次访问服务端的请求参数
         let param = `start=${this.start}&count=${this.count}`;
-        url = url + '?' + param;
+        if(flag == "search") {
+            url = url + '&' + param;
+        }else {
+            url = url + '?' + param;
+        }
         // console.log(url);
         //将最新拼接好的url，存入req对象中
         this.req.url = url;
+        console.log("拼接好的url");
+        console.log(url);
         return this.req;
     }
     /**

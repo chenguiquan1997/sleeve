@@ -1,2 +1,42 @@
-<!--pages/cart/cart.wxml-->
-<text>pages/cart/cart.wxml</text>
+<view class="container">
+    <l-status-show wx:if="{{cartItems.length === 0}}"
+                   l-image-class="image"
+                   l-button-class="button"
+                   l-describe-class="describe"
+                   bind:lintap="onClickTap"
+                   show="{{true}}"
+                   image="/images/empty.png"
+                   button-text="去逛逛"
+                   describe="购物车空空如也，去逛逛吧!">
+
+    </l-status-show>
+    <view wx:if="{{cartItems.length > 0}}">
+        <block wx:for="{{cartItems}}" wx:key="{{item}}">
+            <z-cart-item data="{{item}}" bind:tap="onClickRightTap"
+                         bind:changeCartItemStatus="changeCartItemStatusTap"
+                         bind:counterChange="counterChangeTap"
+                         data-checkFlag="{{checkFlag}}"></z-cart-item>
+        </block>
+    </view>
+    <!--购物车下面的结算tabbar-->
+    <view class="close_an_account_container">
+        <view class="left_container">
+            <view class="all_select_container">
+                <z-check-box bind:tap="onClickAllSelectTap" checkFlag="{{allSelectedFlag}}"></z-check-box>
+                <text class="all_select">全选</text>
+            </view>
+            <view class="all_money_container">
+                <text class="all_money">合计</text>
+                <l-price value="{{totalPrice}}"
+                         color="#157658"
+                         count-size="32"
+                         unit-size="32">
+                </l-price>
+            </view>
+        </view>
+        <view class="count_container" bind:tap="settleAccountTap">
+            <text class="count">结算 ( {{totalCount}} )</text>
+        </view>
+    </view>
+</view>
+

@@ -5,7 +5,7 @@
             <text class="min_discription">首页</text>
         </view>
         <view class="buy_car" bind:tap="onTapBuyCar">
-            <l-badge value="10">
+            <l-badge value="{{carValue}}">
                 <l-icon name="cart" size="46" color="#157658"></l-icon>
             </l-badge>
             <text class="min_discription">购物车</text>

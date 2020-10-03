@@ -1,0 +1,12 @@
+<view class="container">
+   <!--在小程序中，不可以对自定义的组件直接使用class，需要使用自定义组件的外部样式类-->
+   <l-grid l-class="l-container">
+       <block wx:for="{{categoryData}}" wx:key="item">
+           <l-grid-item class="grid-item" key="{{index}}" slot="{{index}}">
+                   <!--在小程序中，图片没有什么自适应，一定要设置尺寸大小-->
+                   <image class="grid-img" src="{{item.img}}"></image>
+                   <view class="text">{{item.name}}</view>
+           </l-grid-item>
+       </block>
+   </l-grid>
+</view>

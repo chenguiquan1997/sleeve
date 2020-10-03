@@ -1,2 +1,27 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class="container">
+    <view class="search_container" bind:tap="onSearchTap">
+        <l-button l-class="search_button" icon="research" icon-size="24"
+                  bg-color="" icon-color="#C4C9D2" shape="square">搜索商品</l-button>
+    </view>
+    <view class="categories_container">
+        <l-segment placement="left" item-height="100" height="{{actualHeight}}"
+                   scrollable
+                   bind:linchange="onChangeCategoryTap"
+                   l-active-class="active_class"
+                   l-inactive-class="inactive_class" l-line-class="line_class">
+            <block wx:for="{{roots}}" wx:key="index">
+                <l-segment-item tab="{{item.name}}" key="{{item.id}}"></l-segment-item>
+            </block>
+        </l-segment>
+
+        <view class="subs_categories_container">
+            <image class="category_img" src="{{img}}"></image>
+            <text class="title">-全部分类-</text>
+            <view class="all_category">
+                <z-subs-category categoryData="{{subs}}"/>
+            </view>
+        </view>
+    </view>
+</view>
+
+

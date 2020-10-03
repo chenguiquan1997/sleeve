@@ -46,13 +46,18 @@
     </view>
 </scroll-view>
 <l-button wx:if="{{whetherProductFlag}}" l-class="buy_button" size="long" height="100rpx" shape="square" bg-color="#555555">
-    <text wx:if="{{flag === 'addCart'}}">加入购物车</text>
-    <text wx:else>立即购买</text>
+    <text bind:tap="onAddShoppingCarTap"
+          wx:if="{{flag === 'addCart'}}">加入购物车</text>
+    <text bind:tap="onImmediatelyBuyTap" wx:else>立即购买</text>
 </l-button>
 
 
 <l-button wx:if="{{!whetherProductFlag}}" l-class="buy_button" size="long" height="100rpx" shape="square"
           bg-color="#DCEBE6">暂时缺货</l-button>
+<l-toast show="{{showFlag}}"
+         title="{{showNoSelectedSpec}}"
+         icon="{{iconFlag}}"
+         duration="2000"></l-toast>
 
 
 

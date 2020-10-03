@@ -1,6 +1,7 @@
 // pages/detail/detail.js.js
 import {Detail} from "../../model/detail";
 import {SaleExplain} from "../../model/sale-explain";
+import {Cart} from "../../model/cart";
 
 Page({
 
@@ -13,6 +14,7 @@ Page({
     flag:null,
     specData:null,
     saleExplain:null,
+    cartNum:0
   },
 
   /**
@@ -20,6 +22,11 @@ Page({
    */
   onLoad: async function (options) {
     let id = options.id;
+    wx.lin.showLoading({
+      color:'#157658',
+      type:'flash',
+      fullScreen:true
+    });
     const spuData = await Detail.getProductDetail(id);
     const saleExplain = await SaleExplain.getSaleExplain();
     console.log(spuData);
@@ -27,6 +34,7 @@ Page({
       spuData:spuData,
       saleExplain:saleExplain,
     })
+    wx.lin.hideLoading();
   },
   onSelectSpecTap(event) {
     this.setData({
@@ -38,7 +46,7 @@ Page({
    * 点击"加入购物车"触发的事件
    * @param event
    */
-  onTapAddCart(event) {
+  onTapAddCar(event) {
     this.setData({
       showRealm:true,
       flag:"addCart"
@@ -58,18 +66,24 @@ Page({
    * 点击购物车图标触发的事件
    * @param event
    */
-  onTapBuyCart(event) {
-
+  onTapBuyCar(event) {
+    wx.switchTab({
+      url:"/pages/cart/cart"
+    })
   },
   /**
    * 点击home图标触发的事件
    * @param event
    */
-  onTapHomce(event) {
+  onTapHome(event) {
     wx.switchTab({
       url:"/pages/home/home"
     })
   },
+  /**
+   * 监听sku-realm抛出的事件函数
+   * @param event
+   */
   onSpecTriggerEvent(event) {
     console.log("onSpecTriggerEvent事件");
     console.log(event);
@@ -77,7 +91,19 @@ Page({
       specData:event.detail,
     })
   },
-
+  /**
+   * 用户在sku-realm中点击”加入购物车“时，触发的改变购物车小图标事件
+   */
+  changeCounterTap() {
+    console.log("购物车小图标事件已经被触发===========");
+    let cart = new Cart();
+    let cartNum = cart.getCartData().length;
+    this.setData({
+      cartNum: cartNum,
+      showRealm:false,
+      flag:"addCart"
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -89,7 +115,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let cart = new Cart();
+    let cartNum = cart.getCartData().length;
+    this.setData({
+      cartNum: cartNum
+    })
   },
 
   /**

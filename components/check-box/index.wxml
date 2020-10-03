@@ -1,0 +1,7 @@
+<view class="container " bind:tap="onCheckedTap">
+
+
+    <l-icon wx:if="{{checkedFlag}}" l-class="iconfont checked" name="check"></l-icon>
+    <l-icon wx:if="{{!checkedFlag}}" l-class="iconfont unchecked" name="check"></l-icon>
+</view>
+

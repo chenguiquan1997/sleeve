@@ -28,14 +28,24 @@
     <view class="explain">
         <z-sale-explain data="{{saleExplain}}"></z-sale-explain>
     </view>
+    <view class="spu_detail_container">
+        <block wx:for="{{spuData.spu_detail_img_list}}" wx:key="index">
+            <image class="detail_img" src="{{item.img}}" mode="widthFix"></image>
+        </block>
+        <image class="detail_img" src="../../images/introduction.jpg" mode="widthFix"></image>
+    </view>
 </view>
 
 <l-popup show="{{showRealm}}" content-align="bottom">
-    <z-sku-realm bind:onSpecTriggerEvent="onSpecTriggerEvent" spu="{{spuData}}" flag="{{flag}}"></z-sku-realm>
+    <z-sku-realm bind:onSpecTriggerEvent="onSpecTriggerEvent"
+                 bind:changeCounterTap="changeCounterTap"
+                 spu="{{spuData}}" flag="{{flag}}"></z-sku-realm>
 </l-popup>
 <!--<z-sku-realm spu="{{spuData}}"></z-sku-realm>-->
-<z-tab-bar class="tab_bar"
-           bind:onTapHomce="onTapHomce"
-           bind:onTapBuyCar="onTapBuyCart"
-           bind:onTapAddCar="onTapAddCart"
+<z-tab-bar class="tab_bar" buyCarValue="{{cartNum}}"
+           bind:onTapHome="onTapHome"
+           bind:onTapBuyCar="onTapBuyCar"
+           bind:onTapAddCar="onTapAddCar"
            bind:onTapBuy="onTapBuy"></z-tab-bar>
+
+<l-loading></l-loading>

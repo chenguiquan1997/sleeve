@@ -1,0 +1,5 @@
+function maxStock(stock, count) {
+    if(stock === 0) {
+        return count;
+    }
+}

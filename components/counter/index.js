@@ -19,6 +19,10 @@ Component({
       value:99
     }
   },
+  observers: {
+    'count,min,max':function (count,min,max) {
+    }
+  },
 
   /**
    * 组件的初始数据

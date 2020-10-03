@@ -1,0 +1,57 @@
+<view class="container">
+    <l-search-bar placeholder="请输入商品名称"
+                  bind:linconfirm="onConfirmTap" bind:lincancel="onCancelTap"></l-search-bar>
+    <view class="line"></view>
+    <view wx:if="{{searchFlag == true}}">
+        <view class="history_search_container">
+            <view class="inner_history_container">
+                <view class="inner">
+                    <view class="left_block"></view>
+                    <text class="title">历史搜索</text>
+                </view>
+                <l-icon l-class="icon"
+                        name="delete" color="#999999" size="32"
+                        bind:tap="onClearTap"></l-icon>
+            </view>
+            <view class="tags_container">
+                <block wx:for="{{historyData}}" wx:key="item">
+                    <l-tag l-class="tags" shape="square"
+                           name="{{item}}"
+                           bind:lintap="onSearchTap">{{item}}</l-tag>
+                </block>
+            </view>
+        </view>
+        <view class="hot_search_container">
+            <view class="inner">
+                <view class="left_block"></view>
+                <text class="title">热门搜索</text>
+            </view>
+            <view class="tags_container">
+                <block wx:for="{{hotData}}" wx:key="item">
+                    <l-tag l-class="tags" l-select-class="selected_tags"
+                           name="{{item.title}}"
+                           select="{{item.highlight == 1}}"
+                           bind:lintap="onSearchTap"
+                           shape="square">{{item.title}}</l-tag>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if="{{searchFlag == false}}">
+        <l-water-flow generic:l-water-flow-item="z-spu-waterflow-list" column-gap="20rpx">
+
+        </l-water-flow>
+    </view>
+    <view class="warn_container" wx:if="{{searchDataFlag == false}}">
+        <text class="warn">抱歉，暂无相关商品!</text>
+    </view>
+    <l-loading></l-loading>
+    <l-toast show="{{showFlag}}"
+             title="请输入有效的内容!"
+             icon="error"
+             duration="2000"></l-toast>
+
+</view>
+
+

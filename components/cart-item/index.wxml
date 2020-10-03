@@ -1,0 +1,49 @@
+<wxs src="../../wxs/show-price.wxs" module="p"></wxs>
+<l-slide-view height="210" width="750" slide-width="200" auto-close="true">
+    <view class="container" slot="left" >
+        <z-check-box class="check_box" bind:checkTap="changeStatusTap" checkFlag="{{checked}}"></z-check-box>
+        <view class="sku_container" bind:tap="onSkuDetailTap" data-id="{{spu_id}}">
+            <view class="image_container">
+                <view wx:if="{{stock === 0}}" class="sale_out">
+                    <text>售罄</text>
+                </view>
+                <view wx:if="{{online === false}}" class="sale_out">
+                    <text>下架</text>
+                </view>
+                <view wx:if="{{stock < 10 && online && stock > 0}}" class="stock_little">
+                    <text>仅剩{{stock}}件</text>
+                </view>
+                <image mode="aspectFit" class="img" src="{{img}}"></image>
+            </view>
+
+            <view class="right_container">
+                <view class="top_title_container">
+                    <l-tag wx:if="{{discount_price}}" l-class="discount_tag" type="reading" shape="circle"
+                           bg-color="#c93756"
+                           size="super-mini">折扣</l-tag>
+                    <text class="title">{{title}}</text>
+                </view>
+                <l-tag l-class="l_tag" color="#157658" size="super-mini">{{specs}}</l-tag>
+                <view class="price_counter_container">
+                    <l-price class="letting_down_price"
+                             color="#157658" value-size="28"
+                             unit-size="20" autofix
+                             value="{{p.mainPrice(price,discount_price)}}"></l-price>
+                    <z-counter wx:if="{{online && stock > 0}}"
+                               class="counter"
+                               max="{{stock}}"
+                               count="{{buyCount}}"
+                               bind:lintap="counterChange"
+                    ></z-counter>
+                </view>
+            </view>
+
+        </view>
+        <view wx:if="{{stock === 0 || online === false}}" class="sku_cover">
+        </view>
+    </view>
+    <view slot="right" class="right" bind:tap="onClickRightTap" auto-close="true">
+        <text>删除</text>
+    </view>
+</l-slide-view>
+

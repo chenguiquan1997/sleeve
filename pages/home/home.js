@@ -28,7 +28,7 @@ Page({
     themeH:null,
     water_flow_paging:null,
     spu_list_paging:null,
-
+    loadingType:"loading",
   },
 
   /**
@@ -40,11 +40,21 @@ Page({
    
   },
   async loadAllHomeData() {
-    // const themeA = await Theme.getHomeLocationA();
+    //  const themeA = await Theme.getHomeLocationA();
+    //  console.log("themeA数据")
+    // console.log(themeA)
     const themes = await Theme.getHomeLocationThems();
+    console.log("themes的所有数据");
+    console.log(themes);
     const bannerB = await Banner.getHomeLocationB();
+    console.log("B位置的数据")
+    console.log(bannerB)
     const categoryC = await Category.getHomeCategoryC();
+    console.log("C位置的分类信息")
+    console.log(categoryC);
     const activicyD = await Activity.getHomeLocationD();
+    console.log("活动D位置中的数据");
+    console.log(activicyD);
 
 
     // find()是js中操作集合的一个方法，可以从当前集合中返回第一个符合条件的数据，这里的theme代表themes集合中
@@ -60,6 +70,8 @@ Page({
       const themeESpuTotal = await Theme.getHomeLocationE();
       if(themeESpuTotal) {
         themeESpu = themeESpuTotal.spu_list.slice(0,8);
+        console.log("themeESpu数据:")
+        console.log(themeESpu)
       }
     }
     const themeF = themes.find(theme=>(theme.name === "t-3"));
@@ -83,7 +95,9 @@ Page({
     // 我们实现滚动页面，应该每次都需要保存之前的数据，所以，paging数据应该保存到this.data中
     const paging = await FlowerSpu.getHomeWaterFlowerSpuList();
     this.data.spu_list_paging = paging;
+    console.log("打印的paging数据");
     console.log(paging);
+    console.log("打印的paging数据");
     const data = await paging.getHomeSpuList();
     if(data === null) {
       return;
@@ -131,9 +145,16 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: async function () {
+    this.setData({
+      loadingType:"loading",
+    })
     const data = await this.data.spu_list_paging.getHomeSpuList();
     console.log(data);
     if(data === null) {
+      console.log("进入data是否为空的判断");
+      this.setData({
+        loadingType:"end",
+      })
       return;
     }
     wx.lin.renderWaterFlow(data.items);
