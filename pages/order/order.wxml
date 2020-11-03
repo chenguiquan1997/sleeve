@@ -1,0 +1,60 @@
+<view class="container">
+    <z-address bind:getAddressTap="getAddressTap">
+
+    </z-address>
+    <view class="order_item_container">
+        <block wx:for="{{skus}}" wx:key="{{item}}">
+            <z-order-item sku="{{item}}"></z-order-item>
+        </block>
+    </view>
+    <!--计算商品总价模块-->
+    <view class="temp_price_container">
+        <view class="origin_price_container">
+            <text>商品总金额：</text>
+            <l-price value="{{totalPrice}}" size="24" color="#333"></l-price>
+        </view>
+        <view class="discount_price_container">
+            <text>优惠金额：</text>
+            <view class="discount_price">
+                <text class="minus_tag {{discountAmount==0?'':'discount_color'}}">-</text>
+                <l-price value="{{discountAmount}}" size="24" color="{{discountAmount==0?'#333':'#F55670'}}">
+
+                </l-price>
+            </view>
+        </view>
+    </view>
+    <!--优惠券栏位-->
+    <z-coupon-selector coupons="{{coupons}}" count="{{count}}" bind:changeSelectCouponTap="changeSelectCouponTap"></z-coupon-selector>
+    <!--提交订单栏位-->
+    <view class="bottom">
+        <view class="price-container">
+            <text>合计</text>
+            <l-price value="{{actualTotalPrice}}" color="#157658" size="30">
+
+            </l-price>
+        </view>
+        <l-button disabled="{{submitBtnDisable}}" bind:lintap="onSubmit" l-class="submit" bg-color="#157658"
+                  height="88"
+                  width="200">
+            提交订单
+        </l-button>
+    </view>
+    <view class="none_view"></view>
+    <!--进行虚拟支付时，弹出的提示框-->
+    <l-dialog content-color="#333333"
+              confirm-color="#157658"
+              title-color="#157658"
+              confirm-text="体验支付"
+              type="confirm"
+              bind:linconfirm="onConfirmTap"
+              bind:lincancel="onCancelTap"
+              show="{{showDialog}}"
+              title="温馨提示">
+        <text class="dialog_text">
+            当前小程序为个人主体，无支付权限;
+            当前订单仅为演示数据，仅可进行虚拟支付体验整体下单流程;
+            测试商品非真实商品，仅用于测试，请知悉~
+        </text>
+    </l-dialog>
+
+</view>

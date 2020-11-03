@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "z-my-coupon": "/components/my-coupon/index"
+  }
+}

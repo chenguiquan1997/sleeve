@@ -2,6 +2,7 @@
 import {Detail} from "../../model/detail";
 import {SaleExplain} from "../../model/sale-explain";
 import {Cart} from "../../model/cart";
+import {Coupon} from "../../model/coupon";
 
 Page({
 
@@ -14,7 +15,8 @@ Page({
     flag:null,
     specData:null,
     saleExplain:null,
-    cartNum:0
+    cartNum:0,
+    coupons: null
   },
 
   /**
@@ -34,7 +36,10 @@ Page({
       spuData:spuData,
       saleExplain:saleExplain,
     })
+    //获取可用优惠券
+    this.getCoupons(this.data.spuData.category_id);
     wx.lin.hideLoading();
+
   },
   onSelectSpecTap(event) {
     this.setData({
@@ -120,6 +125,39 @@ Page({
     this.setData({
       cartNum: cartNum
     })
+  },
+
+  /**
+   * 点击领取优惠券触发的事件
+   */ async onClickCouponTap(event) {
+    console.log("点击领取优惠券触发的事件");
+    console.log(event);
+    let categoryId = event.currentTarget.dataset.categoryid;
+    console.log(categoryId);
+    wx.navigateTo({
+      url: '/pages/coupon/coupon?type=category&categoryId='+categoryId
+    })
+  },
+
+  /**
+   * 商品详情页首次加载时，获取当前商品可以使用的优惠券
+   * @param categoryId
+   */
+  async getCoupons(categoryId) {
+    let coupons = await Coupon.getCurrSpuCanUseCoupons(categoryId);
+    console.log(coupons);
+    if (coupons.length === 0) {
+      return;
+    }
+    if (coupons.length > 2) {
+      // 截取两个
+      coupons = coupons.slice(0, 2);
+      console.log(coupons);
+      this.setData({
+        coupons: coupons
+      });
+      return;
+    }
   },
 
   /**

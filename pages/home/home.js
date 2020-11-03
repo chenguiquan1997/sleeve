@@ -89,10 +89,11 @@ Page({
       themeF:themeF,
       bannerG:bannerG,
       themeH:themeH,
+      coupon:null,
     })
   },
   getHomeSpuList: async function () {
-    // 我们实现滚动页面，应该每次都需要保存之前的数据，所以，paging数据应该保存到this.data中
+    // 我们实现滚动页面，应该每次都需要保存之前的数据，所以，paging对象应该先保存到this.data中
     const paging = await FlowerSpu.getHomeWaterFlowerSpuList();
     this.data.spu_list_paging = paging;
     console.log("打印的paging数据");
@@ -105,6 +106,33 @@ Page({
     console.log(data);
     this.data.water_flow_paging = data;
     wx.lin.renderWaterFlow(data.items);
+  },
+  /**
+   * 用户点击首页的优惠券活动时触发的事件
+   */
+  async onClickCouponTap() {
+    console.log("用户触发的领取优惠券操作");
+    wx.navigateTo({
+      url: '/pages/coupon/coupon?type=activity'
+    })
+  },
+  /**
+   * 用户点击Theme t-1 t-2 t-3 区域，触发的事件
+   */
+  onGetToThemeTap(event) {
+    console.log("用户点击Theme  区域，触发的事件");
+    console.log(event);
+    let themeName = event.currentTarget.dataset.themename;
+    wx.navigateTo({
+      url: '/pages/theme/theme?themeName='+ themeName
+    })
+  },
+  /**
+   * 用户点击轮播图 图片，触发的事件
+   */
+  goToBannerTap() {
+    console.log("用户点击轮播图 图片，触发的事件");
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

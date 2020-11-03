@@ -1,7 +1,7 @@
 <view class="container">
     <view class="icons">
         <view class="home" bind:tap="onTapHome">
-            <l-icon l-class="family" name="home" size="46"></l-icon>
+            <l-icon l-class="sleeve" name="home" size="46"></l-icon>
             <text class="min_discription">首页</text>
         </view>
         <view class="buy_car" bind:tap="onTapBuyCar">

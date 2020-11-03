@@ -8,7 +8,7 @@
     justify-content:center;
 }
 .iconfont {
-    font-family: iconfont, serif !important;
+    font-family: sleeve, serif !important;
 }
 .checked {
     color: #157658 !important;

@@ -1,0 +1,6 @@
+<block wx:for="{{coupon}}" wx:key="{{item}}">
+    <z-coupon coupon="{{item}}">
+
+    </z-coupon>
+</block>
+

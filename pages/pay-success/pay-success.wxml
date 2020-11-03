@@ -1,0 +1,20 @@
+<view class="container">
+    <view class="top_container">
+        <l-status-show l-image-class="image"
+                       l-button-class="button"
+                       l-describe-class="describe"
+                       bind:lintap="ongotoOrderTap"
+                       show="{{true}}"
+                       image="/images/pay-success.png"
+                       button-text="查看订单"
+                       full-screen="{{false}}"
+                       describe="订单支付成功!">
+
+        </l-status-show>
+    </view>
+    <view class="recommend_container">
+        <text class="recommend_text">-今日推荐-</text>
+    </view>
+
+</view>
+

@@ -1,0 +1,61 @@
+/**
+ * 用于优惠券页面显示使用
+ */
+function statusTextColor(status) {
+    if(status === 5){
+        return "#999999"
+    }
+    if(status === 1){
+        return "#9E2731"
+    }
+    else{
+        return "#157658"
+    }
+}
+
+function shouldShow(currentStatus, orderStatus) {
+    if (currentStatus === 0) {
+        return true;
+    }
+    if(currentStatus != orderStatus){
+        return false
+    }
+    return true
+}
+
+function couponColorStatus(status) {
+    if (status === 1 || status === 0) {
+        return "#157658"
+    }
+    if (status === 2) {
+        return "#666666"
+    }
+    if (status === 3) {
+        return  "#bbbbbb"
+    }
+}
+
+function orderStatus(status) {
+    if(status === 1) {
+        return "待付款";
+    }
+    if(status === 2) {
+        return "待发货";
+    }
+    if(status === 3) {
+        return "待收货";
+    }
+    if(status === 4) {
+        return "已完成";
+    }
+    if(status === 5) {
+        return "已取消";
+    }
+}
+
+module.exports = {
+    statusTextColor:statusTextColor,
+    shouldShow:shouldShow,
+    couponColorStatus:couponColorStatus,
+    orderStatus: orderStatus
+}

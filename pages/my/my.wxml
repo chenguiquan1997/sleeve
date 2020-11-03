@@ -1,2 +1,14 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container">
+    <!--用户基本信息-->
+    <z-my-banner couponCount="{{couponCount}}"/>
+    <!--我的订单-->
+    <view class="my_order_container">
+        <z-my-order/>
+    </view>
+    <view class="list_container">
+        <l-list title="全部订单" icon="allOrders" l-class-icon="sleeve" bind:lintap="onGetAllOrderTap"/>
+        <l-list title="优惠券" icon="coupons" l-class-icon="sleeve" bind:lintap="onGetCouponTap"/>
+        <l-list title="收货地址" icon="adres" l-class-icon="sleeve" bind:lintap="onUpdateAddressTap"/>
+    </view>
+
+</view>

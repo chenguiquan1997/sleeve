@@ -2,6 +2,7 @@
 import {Cart} from "../../model/cart";
 import {Calculator} from "../../model/calculator";
 import {Sku} from "../../model/sku";
+import {Order} from "../../model/order";
 
 Page({
 
@@ -24,6 +25,8 @@ Page({
     let cart = new Cart();
     let idsArr = cart.getSkuIds();
     let newSkus = await Sku.getSkusByIds(idsArr);
+    console.log("服务器获取的newSkus");
+    console.log(newSkus);
     cart.synchronizedCartData(newSkus);
     this.refreshCarData();
   },
@@ -31,8 +34,45 @@ Page({
   /**
    *
    */
-  settleAccountTap() {
+  async settleAccountTap() {
     console.log("点击结算触发的事件");
+    if (this.data.totalCount === 0) {
+      wx.lin.showToast({
+        title: '请选择商品后再结算~'
+      });
+      return;
+    }
+    // let cart = new Cart();
+    // //在这里就应该把所有的逻辑都应该处理掉
+    // //1.从购物车缓存中挑选用户需要购买的sku
+    // let skus = cart.findUserAlreadySelectedSku();
+    // console.log(skus)
+    // if (skus.length === 0) {
+    //   wx.lin.showToast({
+    //     title: '请选择商品后再结算~'
+    //   });
+    //   return;
+    // }
+    // //从skus中获取skuId
+    // let skuIds = cart.getSkuIdsBySkus(skus);
+    //
+    // //2.再次和服务器同步数据,与服务器同步时，下架的商品是查不到的
+    // let newServerSkus = await Sku.getSkusByIds(skuIds);
+    // console.log("newServerSkus")
+    // console.log(newServerSkus)
+    // let order = new Order();
+    // order.checkOrderIsOk(newServerSkus, skus);
+    // console.log("获取的order-items========");
+    // console.log(order.orderItems);
+
+    //找出符合条件的商品，有一个不符合，那么将会失败
+    //判断当前用户可以使用的优惠券有哪些
+    //计算当前订单的总价格
+    //3.最终确定这些商品是否可以购买
+    wx.navigateTo({
+      //跳转的时候，需要携带订单中的所有数据
+      url: "/pages/order/order?way=cartBuy",
+    })
   },
 
   /**

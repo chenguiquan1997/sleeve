@@ -1,0 +1,16 @@
+<wxs src="../../wxs/text.wxs" module="t"></wxs>
+
+<view>
+    <image style="height:{{h}}rpx;width:{{w}}rpx;" bind:load="onLoadImg" class="top-img" src="{{topImg}}">
+
+    </image>
+    <view wx:if="{{descriptions.length !==0 }}" class="description-container">
+        <block wx:for="{{descriptions}}" wx:key="index">
+            <text class="description">{{item}}</text>
+        </block>
+    </view>
+    <block wx:for="{{spuList}}" wx:key="{{index}}">
+        <z-spu-preview-h spu="{{item}}" l-class="spu-preview"></z-spu-preview-h>
+    </block>
+</view>
+

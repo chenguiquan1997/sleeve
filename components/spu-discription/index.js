@@ -8,6 +8,9 @@ Component({
   },
   observers: {
     data : function (data) {
+      if(!data) {
+        return;
+      }
       if(!data.tags) {
         return;
       }

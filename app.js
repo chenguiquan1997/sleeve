@@ -1,17 +1,39 @@
 //app.js
+import {Token} from "./model/token";
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    let token = new Token();
+    token.verify();
+    // // 登录
+    // wx.login({
+    //   success: res => {
+    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //     if (res.code) {
+    //       //将code码发送到后台服务器
+    //       wx.request({
+    //         url: 'http://192.168.124.81:8082/v1/token/getToken',
+    //         method: 'POST',
+    //         data: {
+    //           account: res.code,
+    //           type: 0
+    //         },
+    //         success: (res) => {
+    //           console.log("打印的token");
+    //           console.log(res)
+    //           const code = res.statusCode.toString()
+    //           if (code.startsWith('2')) {
+    //             wx.setStorageSync('token', res.data.token)
+    //           }
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
     // 获取用户信息
     wx.getSetting({
       success: res => {

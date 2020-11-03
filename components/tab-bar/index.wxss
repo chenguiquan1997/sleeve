@@ -5,8 +5,8 @@
     width: 100%;
     background-color: #ffffff;
 }
-.family {
-    font-family: iconfont, serif !important;
+.sleeve {
+    font-family: sleeve, serif !important;
     color: #157658 !important;
 }
 .icons {

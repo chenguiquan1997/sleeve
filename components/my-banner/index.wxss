@@ -1,0 +1,63 @@
+.family {
+    font-family: sleeve, serif !important;
+    color: #157658 !important;
+}
+.container{
+    background-color: #DCEBE6;
+    height: 360rpx;
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+.inner-container{
+    position: relative;
+    box-sizing: border-box;
+    width: 690rpx;
+    height: 260rpx;
+    background-color: #ffffff;
+    padding-left:38rpx;
+    padding-right:38rpx;
+    box-shadow:0px 0px 8px 0px rgba(119,163,149,0.2);
+    border-radius: 4rpx;
+}
+.avatar {
+    margin-top: -18rpx;
+}
+.nickText {
+    font-size: 56rpx;
+    color: #ffffff;
+}
+.bottom_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40rpx;
+}
+.v_line {
+    width:3rpx;
+    height: 50rpx;
+    background-color: #dddddd;
+    margin-top: 30rpx;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40rpx;
+}
+.coupon_count {
+    color: #157658;
+}
+.text {
+    font-size: 26rpx;
+    color: #aaaaaa;
+}

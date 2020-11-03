@@ -2,7 +2,9 @@
 <l-loadmore show="{{true}}" type="{{loadingType}}" loading-text="努力加载中~" end-text="-稻草人作品-" >
   <view slot="content">
     <view class="container">
-      <image class="theme-top" src="{{topTheme.entrance_img}}"></image>
+      <image class="theme-top" src="{{topTheme.entrance_img}}" data-themeName="t-1" bind:tap="onGetToThemeTap">
+
+      </image>
 
       <!-- 在使用swiper组件时，swiper和swiper-item都需要设置高度和宽度，否则图片撑不起来 -->
       <swiper class="bannerB_img"
@@ -13,7 +15,7 @@
               circular="true">
         <block wx:for="{{bannerB.items}}" wx:key="item">
           <swiper-item>
-            <image class="bannerB_img" src="{{item.img}}"></image>
+            <image class="bannerB_img" src="{{item.img}}" bind:tap="goToBannerTap"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -21,17 +23,17 @@
       后面花括号中的category_grid_C表示当前页面js文件中传进来的数据-->
       <z-category-grid category_grid_C="{{category_grid_C}}"/>
       <!--优惠券主页-->
-      <view class="homeLocaltionD">
+      <view class="homeLocaltionD" bind:tap="onClickCouponTap" coupon="{{coupon}}">
         <image class="homeLocaltionD_img" src="{{activityD.entrance_img}}"></image>
       </view>
       <!--每周上新滚动条-->
       <z-spu-scroll themeE="{{themeE}}" themeESpu="{{themeESpu}}"/>
       <!--风袖甄选主页-->
-      <image class="homeLocationF" src="{{themeF.entrance_img}}"/>
+      <image class="homeLocationF" bind:tap="onGetToThemeTap" data-themeName="t-3" src="{{themeF.entrance_img}}"/>
       <!--热卖榜单-->
       <z-hot-list bannerG="{{bannerG}}"/>
       <!--时尚出街-->
-      <image class="fashion_img" src="{{themeH.entrance_img}}"/>
+      <image class="fashion_img" bind:tap="onGetToThemeTap" data-themeName="t-4" src="{{themeH.entrance_img}}"/>
       <!--商品的滚动列表-->
       <view class="home_spu_list_container">
         <image class="top_img" src="../../images/recommend.png"/>

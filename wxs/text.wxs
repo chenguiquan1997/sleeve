@@ -1,0 +1,13 @@
+
+var lineBreak = function (text) {
+    if (!text) {
+        return
+    }
+    var reg = getRegExp('\\\\n', 'g')
+    var t = text.replace(reg, '\n');
+    return t
+}
+
+module.exports = {
+    lineBreak: lineBreak
+}

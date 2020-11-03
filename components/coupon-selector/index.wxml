@@ -1,0 +1,25 @@
+<!--用于下单页面，用户选择可以使用的优惠券-->
+<view class="container">
+    <view class="coupon_summary">
+        <text class="name">优惠券</text>
+        <text class="useable">可使用( {{useableCouponCount}} )</text>
+    </view>
+    <view class="coupon_selector">
+        <l-radio-group bind:linchange="changeSelectCouponTap">
+            <block wx:for="{{couponData}}" wx:key="{{item.id}}">
+                <l-radio key="{{item.id}}" class="radio"
+                         color="#157658" disabled="{{!item.useable}}"
+                         select-color="#157658">
+                    <view class="show_container">
+                        <text class="coupon_title">{{item.title}}</text>
+                        <view class="date_container">
+                            <text class="date">{{item.startTime}}</text>
+                            <text>-</text>
+                            <text class="date">{{item.endTime}}</text>
+                        </view>
+                    </view>
+                </l-radio>
+            </block>
+        </l-radio-group>
+    </view>
+</view>

@@ -1,0 +1,98 @@
+
+.top-img{
+    width: 100%;
+    height: 840rpx;
+}
+
+.container{
+    padding-bottom: 20rpx;
+}
+
+/* components/spu-irelia/index.wxss */
+.sleeve {
+    font-family: sleeve !important;
+    font-size: 24rpx;
+    font-style: normal;
+    color: #ffffff !important;
+}
+
+.spu{
+    /*direction: rtl;*/
+    box-sizing: border-box;
+    width: 100%;
+    height: 380rpx;
+    margin-top:20rpx;
+    padding-left:30rpx;
+    padding-right:30rpx;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+.left{
+    height: 320rpx;
+    width: 320rpx;
+    /*margin-right: 60rpx;*/
+}
+
+.right{
+    box-sizing: border-box;
+    padding-top:40rpx;
+    height: 320rpx;
+    width: 300rpx;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.order1{
+    order: 1
+}
+
+.order-1{
+    order:-1
+}
+
+.description{
+    display:flex;
+    flex-direction:column;
+}
+
+.title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+    font-size:32rpx;
+    color: #333333;
+    margin-bottom: 20rpx;
+}
+
+.subtitle{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+    font-size: 28rpx;
+    color: #666666;
+    font-weight: 300;
+}
+
+
+.btn{
+    height: 78rpx;
+    width:78rpx;
+    background-color: #157658;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+

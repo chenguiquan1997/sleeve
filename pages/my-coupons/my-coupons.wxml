@@ -1,0 +1,15 @@
+<view class="container">
+    <l-segment bind:linchange="changeTabs" animated-for-line="true"
+               active-color="#158657">
+        <l-segment-item tab="未使用" key="1" />
+        <l-segment-item tab="已使用" key="2" />
+        <l-segment-item tab="已过期" key="3" />
+    </l-segment>
+
+    <block wx:for="{{coupon}}" wx:key="{{item}}">
+        <z-my-coupon coupon="{{item}}" status="{{status}}">
+
+        </z-my-coupon>
+    </block>
+
+</view>

@@ -188,6 +188,9 @@ class Cart {
         //false 表示购物车中商品的check-box没有被全选
         //true  表示check-box已经被全部选中
         let flag = true;
+        if(this.cartData.length === 0) {
+            return ;
+        }
         this.cartData.forEach(skuData => {
             if(skuData.checked === false) {
                 flag = false;
@@ -213,12 +216,49 @@ class Cart {
     }
 
     /**
+     * 在缓存中找到用户需要购买的sku
+     */
+    findUserAlreadySelectedSku() {
+        this.cartData = this._getStorage();
+        if(this.cartData.length === 0) {
+            return;
+        }
+        let skus = [];
+        this.cartData.forEach(item => {
+            if(item.checked) {
+                if(item.sku.online && item.sku.stock > 0) {
+                    skus.push(item);
+                }
+            }
+        });
+        return skus;
+    }
+
+    /**
+     * 从一组sku中获取skuId
+     * @param skus
+     */
+    getSkuIdsBySkus(skus) {
+       if(skus.length === 0) {
+           return ;
+       }
+       let skuIds = [];
+       skus.forEach(sku => {
+          skuIds.push(sku.skuId);
+       });
+       return skuIds;
+    }
+
+    /**
      * 将服务器端的最新数据同步到购物车中
      * @param skus
      */
     synchronizedCartData(skus) {
         if(skus === null) {
             return null;
+        }
+        if(this.cartData.length === 0) {
+            return ;
         }
         this.cartData.forEach(item => {
             let flag = true;
@@ -245,6 +285,13 @@ class Cart {
      */
     _refreshStorage() {
         wx.setStorageSync(Cart.STORAGE_KEY, this.cartData);
+    }
+
+    /**
+     * 对外提供刷新购物车缓存的方法
+     */
+    refreshStorage() {
+        this._refreshStorage();
     }
 
     /**

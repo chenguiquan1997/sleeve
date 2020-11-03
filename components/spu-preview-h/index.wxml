@@ -1,0 +1,28 @@
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
+<view bind:tap="onItemTap" class="container l-class">
+    <view class="inner-container">
+        <image src="{{spu.img}}"  class="img" mode="aspectFill"></image>
+        <view class="right-container">
+            <text class="title">{{spu.title}}</text>
+            <text class="subtitle">{{spu.subtitle}}</text>
+            <view class="price-container">
+                <l-price
+                        l-class="price"
+                        wx:if="{{p.mainPrice(spu.price, spu.discount_price).display}}"
+                         value="{{p.mainPrice(spu.price, spu.discount_price).price}}"
+                         color="#a92820"
+                         size="32"
+                         >
+
+                </l-price>
+                <l-price wx:if="{{p.slashedPrice(spu.price, spu.discount_price).display}}"
+                         value="{{p.slashedPrice(spu.price, spu.discount_price).price}}"
+                         color="#9d9d9d"
+                         size="26"
+                         deleted
+                         >
+                </l-price>
+            </view>
+        </view>
+    </view>
+</view>

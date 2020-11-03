@@ -1,0 +1,11 @@
+<z-theme-irelia wx:if="{{_tplName=='templete-4'}}" theme="{{_theme}}">
+</z-theme-irelia>
+<z-theme-camille wx:if="{{_tplName=='templete-2'}}" theme="{{_theme}}">
+</z-theme-camille>
+<z-theme-diana wx:if="{{_tplName=='templete-3'}}" theme="{{_theme}}">
+</z-theme-diana>
+
+<z-theme-janna wx:if="{{_tplName=='templete-1'}}" theme="{{_theme}}">
+
+</z-theme-janna>
+

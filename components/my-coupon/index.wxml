@@ -1,0 +1,32 @@
+<wxs module="s" src="../../wxs/status.wxs" xmlns:wx=""/>
+
+<view class="container bg-{{_status}}">
+<view class="inner-container ">
+    <view class="top">
+        <view style="color:{{s.couponColorStatus(_status)}}" class="price-container">
+            <!--已领取，未使用-->
+            <view wx:if="{{_coupon.type === 2}}">
+                <text class="rate">{{_coupon.rate * 10}}</text>
+                <text style="font-size:26rpx;">折</text>
+            </view>
+            <l-price wx:else size="60"
+                     value="{{_coupon.minus}}"
+                     color="{{s.couponColorStatus(_status)}}">
+            </l-price>
+            <text style="margin-left:10rpx">{{_coupon.title}}</text>
+        </view>
+    </view>
+    <view class="bottom">
+        <text>{{_coupon.remark}}</text>
+    </view>
+</view>
+<view class="right-bottom">
+    <view>
+        <text>{{_coupon.startTime}}-</text>
+        <text>{{_coupon.endTime}}</text>
+    </view>
+</view>
+<view data-id="{{_coupon.id}}" bind:tap="onUseCouponTap" class="touch-region ">
+
+</view>
+</view>

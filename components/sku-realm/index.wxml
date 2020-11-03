@@ -57,7 +57,7 @@
 <l-toast show="{{showFlag}}"
          title="{{showNoSelectedSpec}}"
          icon="{{iconFlag}}"
-         duration="2000"></l-toast>
+         duration="3000"></l-toast>
 
 
 

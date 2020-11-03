@@ -1,0 +1,24 @@
+<l-loadmore show="{{true}}" type="{{loadingType}}" loading-text="努力加载中~" end-text="-稻草人作品-" >
+    <view slot="content">
+        <view class="container">
+            <view>
+                <l-segment scrollable="{{true}}" active-color="#157658"
+                           inactive-color="#aaaaaa" bind:linchange="changeTabs"
+                           animated-for-line="true" active-key="{{activeKey}}">
+                    <l-segment-item tab="全部" key="0" />
+                    <l-segment-item tab="待付款" key="1" />
+                    <l-segment-item tab="待发货" key="2" />
+                    <l-segment-item tab="待收货" key="3" />
+                    <l-segment-item tab="已完成" key="4" />
+                </l-segment>
+            </view>
+            <view class="order_item_container">
+                <block wx:for="{{orders}}" >
+                    <z-my-order-item order="{{item}}"></z-my-order-item>
+                </block>
+            </view>
+        </view>
+    </view>
+</l-loadmore>
+
+

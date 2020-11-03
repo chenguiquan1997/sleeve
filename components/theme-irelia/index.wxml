@@ -1,0 +1,18 @@
+<view class="container">
+    <image style="height:{{h}}rpx;width:{{w}}rpx;" bind:load="onLoadImg" class="top-img" src="{{topImg}}">
+    </image>
+    <block wx:for="{{spuList}}">
+        <view data-spu-id="{{item.id}}" class="spu" bind:tap="onGoToSpu">
+            <image class="left {{randoms[index]===-1?'order-1':'order1'}}" mode="aspectFill" src="{{item.img}}"></image>
+            <view class="right {{randoms[index]===-1?'order':'order-1'}}">
+                <view class="description">
+                    <text class="title">{{item.title}}</text>
+                    <text class="subtitle">{{item.subtitle}}</text>
+                </view>
+                <view class="btn">
+                    <l-icon name="r-arrow" size="60" l-class="sleeve"></l-icon>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

@@ -1,17 +1,20 @@
 // pages/my/my.js
+import {Coupon} from "../../model/coupon";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    couponCount: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+
 
   },
 
@@ -25,8 +28,41 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: async function () {
+    console.log("进入onshow函数");
+    let coupons = await Coupon.getUserCoupons(1);
+    console.log(coupons.length);
+    if (coupons) {
+      let couponCount = coupons.length;
+      this.setData({
+        couponCount: couponCount
+      })
+    }
+  },
+  /**
+   * 获取全部订单
+   */
+  onGetAllOrderTap() {
+    console.log("触发获取全部订单事件");
+    wx.navigateTo({
+      url:"/pages/my-order/my-order?status=0"
+    })
+  },
+  /**
+   * 获取我的优惠券
+   */
+  onGetCouponTap() {
+    console.log("触发获取优惠券事件");
+    wx.navigateTo({
+      url:"/pages/my-coupons/my-coupons?status=1"
+    })
+  },
+  /**
+   * 修改收货地址
+   */
+  onUpdateAddressTap() {
+    console.log("触发修改收货地址事件");
+    wx.chooseAddress({});
   },
 
   /**

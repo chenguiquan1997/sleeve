@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "z-address": "/components/address/index",
+    "z-order-item": "/components/order-item/index",
+    "z-coupon-selector": "/components/coupon-selector/index"
+  }
+}

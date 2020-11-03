@@ -53,3 +53,47 @@
     margin-top: -15rpx;
     margin-bottom: -15rpx;
 }
+.coupon_container {
+    height: 80rpx;
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 10rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.left_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.left {
+    position: relative;
+    width: 200rpx;
+    height: 48rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30rpx;
+}
+.right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.coupon_img {
+    width: 200rpx;
+    height: 48rpx;
+    position: absolute;
+}
+.coupon_text {
+    font-size: 22rpx;
+    z-index: 99;
+    color: #157658;
+}
+.receive {
+   font-size: 24rpx;
+    margin-right: 20rpx;
+}

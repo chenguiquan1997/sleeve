@@ -1,1 +1,18 @@
-/* pages/my/my.wxss */
+.container {
+    background-color: #ffffff;
+}
+.my_order_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20rpx;
+}
+.list_container {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+}
+.sleeve {
+    font-family: sleeve, serif !important;
+    color: #157658 !important;
+}

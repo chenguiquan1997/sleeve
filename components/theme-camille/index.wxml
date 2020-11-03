@@ -1,0 +1,27 @@
+<view class="container">
+    <image style="height:{{h}}rpx;width:{{w}}rpx;" bind:load="onLoadImg" class="top-img" src="{{topImg}}"></image>
+    <view class="panel">
+        <block wx:for="{{spuList}}">
+            <view data-spu-id="{{item.id}}" class="spu" bind:tap="onGoToSpu">
+                    <image class="left" mode="aspectFill" src="{{item.img}}"></image>
+                    <view class="right ">
+                        <view class="description">
+                            <text class="title hidden-text">{{item.title}}</text>
+                            <!--                        <text class="subtitle">{{item.subtitle}}</text>-->
+                        </view>
+                        <view class="buy">
+                            <l-price value="{{item.price}}"
+                                     color="#157658"
+                                     unit-size="20"
+                                     count-size="36"
+                            ></l-price>
+                            <view class="btn">
+                                <text>立即购买</text>
+                            </view>
+                        </view>
+                    </view>
+            </view>
+        </block>
+
+    </view>
+</view>

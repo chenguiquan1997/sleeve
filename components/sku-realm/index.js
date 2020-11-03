@@ -125,6 +125,9 @@ Component({
     onCellTap(event) {
       console.log("realm中捕获到的事件");
       console.log(event);
+      if(!event) {
+        return;
+      }
       let cell = event.detail.cellData;
       let x = event.detail.x;
       let y = event.detail.y;
@@ -309,8 +312,55 @@ Component({
      * 用户点击realm组件中的"立即购买"，触发的事件
      */
     onImmediatelyBuyTap() {
-
+      console.log("立即购买\"，触发的事件");
+      //判断当前商品是否有规格
+      let flag = Detail.noHaveSpec(this.properties.spu);
+      if(flag === true) {
+        //无规格，直接采用唯一的 sku + 购买数量
+        let onlyOneSku = this.properties.spu.sku_list[0];
+        let count = this.data.count;
+        console.log("默认sku + count");
+        console.log(onlyOneSku);
+        console.log(count);
+        this.goToOrder(onlyOneSku.id,count);
+      }else {
+        //有规格，需要判断 规格是否选择完全 + 购买数量
+        let intact = this.data.judger.skuPending.intact();
+        if(intact === true) {
+          //规格选择完全
+          let matchSku = this.data.judger.getSku();
+          let count = this.data.count;
+          console.log("选择完全的规格+count");
+          console.log(matchSku);
+          console.log(count);
+          //需要进行跳转操作
+          this.goToOrder(matchSku.id,count);
+        }else {
+          //规格选择不完全，需要进行提示
+          let noSelectedSpec = this._findNoSelectedSpecName();
+          let showNoSelectedSpec = "请选择: " + noSelectedSpec;
+          this.setData({
+            showFlag:true,
+            iconFlag:"error",
+            showNoSelectedSpec:showNoSelectedSpec,
+          });
+          let count = this.data.count;
+          console.log("规格选择不完全+count");
+          console.log(noSelectedSpec);
+          console.log(count);
+        }
+      }
     },
+
+    /**
+     * 用户点击 "立即购买" 按钮后，跳转到订单页面
+     */
+    goToOrder(skuId,count) {
+      wx.navigateTo({
+        url: "/pages/order/order?way=immediateBuy&skuId="+skuId+"&count="+count
+      })
+    },
+
     /**
      * 找出用户还没有选择完全的规格名
      */

@@ -13,6 +13,26 @@
     </swiper>
 
     <z-spu-discription data="{{spuData}}"></z-spu-discription>
+
+    <!--商品详情页优惠券-->
+    <view wx:if="{{coupons !== null}}" class="coupon_container" bind:tap="onClickCouponTap" data-categoryId="{{spuData.category_id}}">
+        <view class="left_container">
+            <block wx:for="{{coupons}}"  wx:key="item">
+                <view class="left">
+                    <text class="coupon_text">{{item.title}}</text>
+                    <image class="coupon_img" src="/images/coupon@mini.png"></image>
+                </view>
+            </block>
+        </view>
+
+        <view class="right">
+            <text class="receive">立即领取</text>
+            <view class="arrow-right">
+                <l-icon name="right" color="#157658" size="24"></l-icon>
+            </view>
+        </view>
+    </view>
+
     <!--如果当前商品为无规格商品，那么就不显示当前view  -->
     <view class="spec_container" bind:tap="onSelectSpecTap">
         <view wx:if="{{specData.whetherSpec === true}}" class="spec_view">

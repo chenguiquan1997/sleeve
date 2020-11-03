@@ -1,0 +1,39 @@
+/* pages/pay-success/pay-success.wxss */
+.container {
+
+}
+.top_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+.image {
+    margin-top: 50rpx;
+    width:120rpx !important;
+    height:120rpx !important;
+}
+.button {
+    background-color: #157658 !important;
+    margin-bottom: 20rpx;
+}
+.describe {
+    color: #333333 !important;
+}
+.recommend_container {
+    width: 100%;
+    height: 80rpx;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rpx;
+    margin-bottom: 5rpx;
+}
+.recommend_text {
+    color: #333333;
+    font-size: 26rpx;
+}

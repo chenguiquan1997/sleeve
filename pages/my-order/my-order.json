@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "z-my-order-item": "/components/my-order-item/index"
+  }
+}

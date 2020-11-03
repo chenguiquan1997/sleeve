@@ -37,6 +37,7 @@
         <view class="count_container" bind:tap="settleAccountTap">
             <text class="count">结算 ( {{totalCount}} )</text>
         </view>
+        <l-toast duration="3000"/>
     </view>
 </view>
 

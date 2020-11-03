@@ -1,0 +1,14 @@
+<view class="container">
+    <image mode="aspectFit" class="image" src="{{skuData.sku.img}}"></image>
+    <view class="middle_container">
+        <text class="title">{{skuData.sku.title}}</text>
+        <l-tag l-class="spaces" color="#157658" size="super-mini">{{specData}}</l-tag>
+    </view>
+    <view class="right_container">
+        <l-price class="price"
+                 color="#157658" value-size="28"
+                 unit-size="20" autofix
+                 value="{{skuData.singleFinalPrice}}"></l-price>
+        <text class="count">x {{skuData.itemCount}}</text>
+    </view>
+</view>

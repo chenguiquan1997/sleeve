@@ -1,0 +1,38 @@
+<view class="container">
+    <view class="address_container" wx:if="{{!hasChosen}}">
+        <l-button type="default" plain="true"
+                  width="360" height="88"
+                  icon="address" icon-size="28" icon-color="#157658"
+                  l-class="button" l-label-class="button"
+                  bind:lintap="createAddressTap"
+                  >选择收货地址
+        </l-button>
+    </view>
+
+    <view bind:tap="createAddressTap" wx:if="{{hasChosen}}" class="address_container">
+        <view class="address_inner">
+            <view class="base_info">
+                <l-icon name="address" l-class="adddress"></l-icon>
+                <text class="name">{{address.userName}}</text>
+                <text class="phone">{{address.telNumber}}</text>
+            </view>
+            <view class="address_info">
+                <text>{{address.provinceName}}</text>
+                <text> {{address.cityName}}</text>
+                <text> {{address.countyName}}</text>
+                <text> {{address.detailInfo}}</text>
+            </view>
+        </view>
+        <l-icon style="font-weight: bold" name="right" color="#157658" size="30"></l-icon>
+    </view>
+
+    <image class="img_address" src="/images/bottom@address.png"></image>
+</view>
+<l-dialog content-color="#333333"
+          confirm-color="#157658"
+          title-color="#157658"
+          bind:linconfirm="onDialogConfirmTap"
+          show="{{showDialog}}"
+          content="请先授权《风袖》获取您的收货地址"
+          title="授权">
+</l-dialog>

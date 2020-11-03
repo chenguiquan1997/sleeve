@@ -1,0 +1,50 @@
+/* components/coupon-selector/index.wxss */
+.container {
+
+}
+.coupon_summary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rpx;
+    background-color: #ffffff;
+    height: 88rpx;
+}
+.name {
+    font-size: 28rpx;
+    color: #333333;
+    margin-left: 30rpx;
+}
+.useable {
+    font-size: 26rpx;
+    color: #333333;
+    margin-right: 30rpx;
+}
+.coupon_selector {
+    background-color: #ffffff;
+}
+.radio {
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+}
+.show_container {
+    display:flex;
+    flex:1;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+}
+.coupon_title {
+    font-size: 26rpx;
+}
+.date_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 30rpx;
+}
+.date {
+    font-size: 24rpx;
+}

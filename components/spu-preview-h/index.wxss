@@ -1,0 +1,64 @@
+/* components/spu-preview-h/index.wxss */
+
+.container {
+    height: 300rpx;
+    width: 100%;
+    box-sizing: border-box;
+    /*padding:30rpx;*/
+    padding-left: 30rpx;
+    padding-right: 16rpx;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.inner-container {
+    /*width: 220rpx;*/
+    width: 100%;
+    height: 240rpx; 
+    display: flex;
+    flex-direction: row;
+}
+
+.img {
+    width: 240rpx;
+    height: 240rpx;
+    margin-right: 40rpx;
+}
+
+.right-container {
+    padding: 32rpx 0 0 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 32rpx;
+    flex: 1;
+}
+
+.title {
+    width: 400rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.subtitle {
+    margin-top: 12rpx;
+    color: #9e9e9e;
+    font-size: 26rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+}
+
+.price-container{
+    display:flex;
+    flex-direction:row;
+}
+
+.price{
+    margin-right: 50rpx;
+}
