@@ -42,5 +42,19 @@
         </l-water-flow>
       </view>
     </view>
+    <l-dialog content-color="#333333"
+              confirm-color="#157658"
+              title-color="#157658"
+              confirm-text="去授权"
+              type="alert"
+              bind:linconfirm="onConfirmTap"
+              bind:lincancel="onCancelTap"
+              show="{{showDialog}}"
+              title="温馨提示">
+      <text class="dialog_text">
+        用户您好，由于系统需要完善用户信息;
+        需要您确认授权才能使用~
+      </text>
+    </l-dialog>
   </view>
 </l-loadmore>

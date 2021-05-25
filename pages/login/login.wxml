@@ -1,0 +1,7 @@
+<view class="container">
+    <view class="userinfo">
+        <block wx:if="{{!hasUserInfo}}">
+            <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取用户信息 </button>
+        </block>
+    </view>
+</view>

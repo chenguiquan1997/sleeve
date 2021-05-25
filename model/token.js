@@ -41,6 +41,7 @@ class Token {
     async getTokenFromServer() {
         // code
         const r = await wx.login();
+        console.log()
         const code = r.code;
 
         const res = await promisic(wx.request)({
