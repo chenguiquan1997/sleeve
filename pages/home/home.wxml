@@ -53,7 +53,7 @@
               title="温馨提示">
       <text class="dialog_text">
         用户您好，由于系统需要完善用户信息;
-        需要您确认授权才能使用~
+        需要您确认授权才可使用~
       </text>
     </l-dialog>
   </view>

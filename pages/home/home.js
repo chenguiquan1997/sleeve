@@ -9,6 +9,7 @@ import {Banner} from "../../model/banner";
 import {Category} from "../../model/category";
 import {Activity} from "../../model/activity";
 import {FlowerSpu} from "../../model/flower-spu";
+import {User} from "../../model/user";
 
 
 Page({
@@ -29,17 +30,33 @@ Page({
     water_flow_paging:null,
     spu_list_paging:null,
     loadingType:"loading",
-    showDialog: true,
+    showDialog: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    this.showDialog();
     await this.loadAllHomeData();
     await this.getHomeSpuList();
 
   },
+  showDialog() {
+    // 首先得需要判断缓存中有没有，如果有，则需要判断数据库有没有记录
+    // 如果没有，则应该提示用户授予权限获取，然后存入缓存中
+    // 并将用户信息写入数据库，在后台逻辑中判断是否一个月未更新，如果是，那么需要重新获取一次用户信息
+    let user = new User();
+    let userInfo = user._getStorage();
+    if(!userInfo) {
+      this.setData({
+        showDialog: true
+      })
+    }
+  },
+  /**
+   * 获取用户信息
+   */
   getUserProfile() {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -47,10 +64,17 @@ Page({
       desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         console.log(res)
+        res.userInfo.nick_name = res.userInfo.nickName
+        res.userInfo.avatar_url = res.userInfo.avatarUrl
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
+        let user = new User();
+        // 写入缓存
+        user.setStorage(res.userInfo)
+        // 用户信息写入数据库
+        user.saveUser(res.userInfo)
       },
       fail: (res) => {
         console.log('获取失败')
