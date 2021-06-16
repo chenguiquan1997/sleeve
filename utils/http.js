@@ -56,7 +56,7 @@ class Http {
             //console.log(backData);
             return backData.data
         }else {
-            // 401表示token授权失败
+            // 401表示token授权失败，很大原因可能是因为Token过期导致
             if(code === '401') {
                 console.log("Http出现401异常");
                 if (refetch) {
@@ -116,7 +116,8 @@ class Http {
     }
 
     /**
-     *
+     * 如果第一次发送的请求失败，并且返回前端的错误码是401，表示Token出现了问题，可能是过期，也可能是不合法
+     * 需要进行第二次的重试
      * @param url
      * @param data
      * @param refetch
@@ -134,7 +135,7 @@ class Http {
         return await Http.request({url,data,refetch,method});
     }
     /**
-     * 前端异常同一处理和显示
+     * 前端异常统一处理和显示
      * @param error_code 服务端给到前端的错误码
      * @param serverError 服务端给到前端的错误信息
      */

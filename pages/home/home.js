@@ -75,6 +75,7 @@ Page({
         user.setStorage(res.userInfo)
         // 用户信息写入数据库
         user.saveUser(res.userInfo)
+        console.log('将用户信息写入数据库')
       },
       fail: (res) => {
         console.log('获取失败')
