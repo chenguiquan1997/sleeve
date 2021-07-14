@@ -6,6 +6,7 @@
     margin-left: 20rpx;
     padding: 2rpx;
     border:3rpx solid #333333;
+    margin-top: 10rpx;
 }
 .selected_container {
     height: 60rpx;
@@ -15,6 +16,7 @@
     margin-left: 20rpx;
     padding: 2rpx;
     border:3rpx solid #333333;
+    margin-top: 10rpx;
 }
 .prohibit_container {
     height: 60rpx;
@@ -24,6 +26,8 @@
     margin-left: 20rpx;
     padding: 2rpx;
     border:3rpx dashed #bbbbbb;
+    margin-top: 10rpx;
+
 }
 .cell_selected {
     border:2rpx solid #333333;
@@ -34,6 +38,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /*margin-top: 10rpx;*/
+
 }
 .cell_waiting {
     padding-left: 15rpx;

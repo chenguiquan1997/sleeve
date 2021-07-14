@@ -32,6 +32,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    /**
+     * 点击子分类图标，进入相应子分类商品列表
+     */
+    goToSubCategory() {
+      console.log('进入子分类商品列表')
+    }
 
   }
 })

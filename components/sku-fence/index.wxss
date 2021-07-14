@@ -1,6 +1,8 @@
 .container {
     display: flex;
     flex-direction: row;
+    /*当元素在一行中不够排列的时候，可以实现自动换行的功能*/
+    flex-wrap: wrap;
 }
 .hr {
     width: 690rpx;
