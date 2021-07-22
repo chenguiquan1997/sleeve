@@ -176,10 +176,28 @@ Page({
   },
   /**
    * 用户点击轮播图 图片，触发的事件
-   */
-  goToBannerTap() {
+   */ async goToBannerTap(event) {
     console.log("用户点击轮播图 图片，触发的事件");
-
+    console.log(event);
+    const key = event.currentTarget.dataset.key;
+    const type = event.currentTarget.dataset.type;
+    // Spu
+    if (type === 1) {
+      // 需要携带数据跳转到spu页面
+      wx.navigateTo({
+        url: '/pages/detail/detail?id=' + key,
+      })
+    }
+    if (type === 2) {
+      // 跳转到theme页面
+      const themeName = await Theme.getThemeNameById(key);
+      if(themeName === "") {
+        return ;
+      }
+      wx.navigateTo({
+        url: '/pages/theme/theme?themeName=' + themeName
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

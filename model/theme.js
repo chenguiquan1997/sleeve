@@ -44,6 +44,18 @@ class Theme {
       return data;
   }
 
+    /**
+     * 通过主题id，获取主题名称
+     * @param id
+     * @returns {Promise<*>}
+     */
+  static async getThemeNameById(id) {
+      const data = await Http.request({
+          url: `theme/getName/by/${id}`,
+      })
+      return data;
+  }
+
   static async getHomeLocationA() {
       const backData = await Http.request({
           url: 'theme/by/names',

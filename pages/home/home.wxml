@@ -15,7 +15,8 @@
               circular="true">
         <block wx:for="{{bannerB.items}}" wx:key="item">
           <swiper-item>
-            <image class="bannerB_img" src="{{item.img}}" bind:tap="goToBannerTap"></image>
+            <image class="bannerB_img" src="{{item.img}}" bind:tap="goToBannerTap"
+                   data-type="{{item.type}}" data-key="{{item.keyword}}"></image>
           </swiper-item>
         </block>
       </swiper>
