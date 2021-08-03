@@ -124,6 +124,8 @@ Page({
     const themeF = themes.find(theme=>(theme.name === "t-3"));
     // 在这里添加await，是因为我需要等待结果的返回，如果不加await，那么只能返回一个promise
     const bannerG = await Banner.getHomeLocationG();
+    console.log('bannerG数据')
+    console.log(bannerG)
     const themeH = themes.find(theme=>(theme.name === "t-4"));
 
     this.setData({
@@ -150,7 +152,7 @@ Page({
     if(data === null) {
       return;
     }
-    console.log(data);
+
     this.data.water_flow_paging = data;
     wx.lin.renderWaterFlow(data.items);
   },

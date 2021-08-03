@@ -1,8 +1,9 @@
-<l-loadmore show="{{true}}" type="{{loadingType}}" loading-text="努力加载中~" end-text="-稻草人作品-" >
+<l-loadmore show="{{loadMoreFlag}}" type="{{loadingType}}" loading-text="努力加载中~" end-text="-稻草人作品-" >
     <view slot="content">
         <view class="container">
             <l-search-bar placeholder="请输入商品名称"
-                          bind:linconfirm="onConfirmTap" bind:lincancel="onCancelTap"></l-search-bar>
+                          bind:linconfirm="onConfirmTap" bind:lincancel="onCancelTap"
+                          bind:linfocus="onFocusTap"></l-search-bar>
             <view class="line"></view>
             <view wx:if="{{searchFlag == true}}">
                 <view class="history_search_container">
@@ -31,10 +32,10 @@
                     <view class="tags_container">
                         <block wx:for="{{hotData}}" wx:key="item">
                             <l-tag l-class="tags" l-select-class="selected_tags"
-                                   name="{{item.title}}"
+                                   name="{{item}}"
                                    select="{{item.highlight == 1}}"
                                    bind:lintap="onSearchTap"
-                                   shape="square">{{item.title}}</l-tag>
+                                   shape="square">{{item}}</l-tag>
                         </block>
                     </view>
                 </view>
@@ -47,6 +48,14 @@
             </view>
             <view class="warn_container" wx:if="{{searchDataFlag == false}}">
                 <text class="warn">抱歉，暂无相关商品!</text>
+                <l-status-show l-image-class="image"
+                               l-button-class="button"
+                               l-describe-class="describe"
+                               show="{{true}}"
+                               image="/images/empty.png"
+                               describe="抱歉，暂无相关商品!">
+
+                </l-status-show>
             </view>
             <l-loading></l-loading>
             <l-toast show="{{showFlag}}"

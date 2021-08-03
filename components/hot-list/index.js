@@ -41,5 +41,26 @@ Component({
    */
   methods: {
 
+    getMoreHotProduct() {
+      console.log('触发查看更多热门商品事件：')
+      //需要跳转到商品列表界面
+      wx.navigateTo({
+        url: '/pages/theme/theme?themeName=t-1'
+      })
+    },
+    goToHotProductDetail(event) {
+      console.log('触发左侧热门商品事件')
+      console.log("用户点击热销榜单区域，触发的事件：");
+      console.log(event);
+      // 先获取得到 商品id
+      let productId = event.currentTarget.dataset.id
+      console.log('获取得到 商品id：')
+      console.log(productId)
+      // 根据商品 id，跳转到商品详情页
+      wx.navigateTo({
+        url: '/pages/detail/detail?id='+productId,
+      })
+    }
+
   }
 })

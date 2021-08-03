@@ -1,12 +1,15 @@
 <view class="container">
-    <image class="hot_img" src="{{bannerG.img}}"></image>
+    <image class="hot_img" src="{{bannerG.img}}" bind:tap="getMoreHotProduct"></image>
     <view class="hot_products">
         <view class="hot_first">
-            <image class="hot_first_img" src="{{left.img}}"></image>
+            <image class="hot_first_img" src="{{left.img}}"
+                   bind:tap="goToHotProductDetail" data-id="{{left.keyword}}"></image>
         </view>
         <veiw class="hot_second">
-            <image class="hot_second_img_one" src="{{rightTop.img}}"></image>
-            <image class="hot_second_img_two" src="{{rightBottom.img}}"></image>
+            <image class="hot_second_img_one" src="{{rightTop.img}}"
+                   bind:tap="goToHotProductDetail" data-id="{{rightTop.keyword}}"></image>
+            <image class="hot_second_img_two" src="{{rightBottom.img}}"
+                   bind:tap="goToHotProductDetail" data-id="{{rightBottom.keyword}}"></image>
         </veiw>
     </view>
 </view>

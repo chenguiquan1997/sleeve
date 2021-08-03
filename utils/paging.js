@@ -42,12 +42,15 @@ class Paging {
      * @param counts
      */
     constructor(req,start,count) {
+        console.log('-----进入paging对象的构造方法-----')
         this.start = start;
         this.count = count;
         this.req = req;
         //当前类的url属性，由于是从构造方法中获取的数据，所以是最原始的数据，
         // 就是v1/spu/latest，不存在被覆盖的情况
         this.url = req.url;
+        this.isHaveMoreData = true;
+
     }
     /**
      *  定义从服务端获取瀑布流商品数据的方法
@@ -55,7 +58,10 @@ class Paging {
      */
     async getHomeSpuList(flag="null") {
         //判断是否有更多数据,这个判断很重要，它可以在前端防止不必要的请求，降低服务器的压力
+        console.log('this.isHaveMoreData的布尔值：')
+        console.log(this.isHaveMoreData)
         if(!this.isHaveMoreData) {
+            console.log('判断是否有更多的数据：false')
             return null;
         }
         //调用请求之前先获取锁
@@ -76,8 +82,12 @@ class Paging {
     async _requestSpuList(flag) {
         //首先获取每次请求之前整理好的url
         const reqObject = this.handleParameter(flag);
+        console.log('获取每次请求之前整理好的url：')
+        console.log(reqObject)
         //执行request方法需要返回一个promise，所以需要await
         let splitPageData = await Http.request(reqObject);
+        console.log('执行request方法返回的数据：')
+        console.log(splitPageData)
         if(splitPageData === null) {
             return null;
         }
@@ -96,7 +106,13 @@ class Paging {
             }
         }
         //如果当前已经请求到数据，那么还需要判断是否还有更多的数据，以便判断是否需要进行下一次请求
+        console.log('当前页：')
+        console.log(splitPageData.page)
+        console.log('总页数：')
+        console.log(splitPageData.total_page)
         this.isHaveMoreData = Paging._haveMoreData(splitPageData.page, splitPageData.total_page);
+        console.log('判断是否还有更多数据：')
+        console.log(this.isHaveMoreData)
         if(this.isHaveMoreData) {
             //如果确定了在当前请求之后还有数据，那么需要重新拼接request url
             this.start += this.count;
@@ -127,7 +143,7 @@ class Paging {
      * @private
      */
     static _haveMoreData(currentPage,totalPage) {
-        if(currentPage < totalPage-1) {
+        if(currentPage < totalPage) {
             return true;
         }
         return false;
@@ -143,7 +159,7 @@ class Paging {
         //console.log(url);
         //拼接每次访问服务端的请求参数
         let param = `start=${this.start}&count=${this.count}`;
-        if(flag == "search") {
+        if(flag === "search") {
             url = url + '&' + param;
         }else {
             url = url + '?' + param;

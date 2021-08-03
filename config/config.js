@@ -8,7 +8,7 @@
 
 const baseURL  = {
   appkey: 'YaKUEEmZseyDFAxk',
-  url: 'http://192.168.10.11:8082/v1/'
+  url: 'http://192.168.10.4:8082/v1/'
 }
 //定义的全局配置，如果想要在外部使用，那么一定需要导出,当前使用的是ES6的语法
 export {
